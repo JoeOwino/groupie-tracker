@@ -1,32 +1,54 @@
-<!-- templates/home.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/index.css">
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to the Home Page!</h1>
-    {{range .}}
-    <div>
-        <img src="{{.Image}}" alt="image of {{.Name}}">
-        <p>{{.Id}}. {{.Name}}</p>
-        <h3>Member</h3>
-        <ol>
-        {{range .Member}}
-                    <li>{{.}}</li>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <h3>Groupie-Tracker</h3>
+            </a>
+            <div class="header-middle">
+                <form  id="search-form" action="/search" method="GET">
+                    <input type="text" class="search-bar" name="query" placeholder="Search by name">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+            <a href="/" class="home-link">Home</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Spotlight on Music Legends</h1>
+        <div class="artist-container">
+            {{range .}}
+            <div class="artist-card">
+                <a href="/artistProfile?artistId={{.Id}}">
+                <img src="{{.Image}}" alt="image of {{.Name}}">
+                <p>{{.Id}}. {{.Name}}</p>
+                </a>
+                <h3>Members</h3>
+                <ol>
+                {{range .Member}}
+                        <li>{{.}}</li>
+                {{end}}
+                </ol>
+                <p>Creation Date: {{.CreationDate}}</p>
+                <p>First Album: {{.FirstAlbum}}</p>
+                <a href="/locations?artistId={{.Id}}">Location</a><br>
+                <a href="/concert_dates?artistId={{.Id}}">Concert Date</a><br>
+                <a href="/relations?artistId={{.Id}}">Relation</a>
+            </div>
             {{end}}
-        </ol>
-    
-        <!-- <p>Member: {{.Member}}</p> -->
-        <p>Creation Date: {{.CreationDate}}</p>
-        <p>First Album: {{.FirstAlbum}}</p>
-        <a href="/locations">Location</a><br>
-        <a href="/concert_dates">Concert Date</a><br>
-        <a href="/relations">Relation</a>
-    </div>
-    {{end}}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Music Legends. All rights reserved.</p>
+        <p>Explore the legendary artists and their iconic works. For more information, visit our <a href="#">about page</a>.</p>
+    </footer>
 </body>
 </html>

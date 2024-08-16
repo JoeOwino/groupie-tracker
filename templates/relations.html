@@ -3,25 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/reletions.css">
     <title>Relations</title>
 </head>
 <body>
-    <h1>Relations</h1>
-    {{range .}}
-        <div>
-            <h2>Relation ID: {{.Id}}</h2>
-            <ul>
-                {{range $date, $locations := .DatesLocation}}
-                    <li>{{ $date }}:
-                        <ul>
-                            {{range $locations}}
-                                <li>{{.}}</li>
-                            {{end}}
-                        </ul>
-                    </li>
-                {{end}}
-            </ul>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <h3>Groupie-Tracker</h3>
+            </a>
+            <div class="header-middle">
+                <form  id="search-form" action="/search" method="GET">
+                    <input type="text" class="search-bar" name="query" placeholder="Search by name">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+            <a href="/" class="home-link">Home</a>
         </div>
-    {{end}}
-</body>
+    </header>
+    <main>
+            <div class="logo">
+                <h1>Music Legends</h1>
+                <p>Discover the Icons of Music</p>
+            </div>
+        <div class="container">
+            <h1>Relations</h1>
+            {{if .}}
+            {{range .}}
+                <div class="relation-item">
+                    <h2>Relation ID: {{.Id}}</h2>
+                    <ul>
+                        {{range $date, $locations := .DatesLocation}}
+                            <li>{{ $date }}:
+                                <ul>
+                                    {{range $locations}}
+                                        <li>{{.}}</li>
+                                    {{end}}
+                                </ul>
+                            </li>
+                        {{end}}
+                    </ul>
+                </div>
+            {{end}}
+            {{else}}
+                <p>No relations available.</p>
+            {{end}}
+            <a href="/" class="back-home-button">Back to Home Page</a>        
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Music Legends. All rights reserved.</p>
+        <p>Explore the legendary artists and their iconic works. For more information, visit our <a href="#">about page</a>.</p>
+    </footer>
+    
+   </body>
 </html>

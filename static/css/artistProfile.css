@@ -1,0 +1,175 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1c1e21;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for a sleek look */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem; /* Adjusted padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added shadow for a sleek look */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-link {
+    color: #ff6347;
+    text-decoration: none;
+    font-size: 1.2rem; /* Adjusted font size */
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.header-middle {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    max-width: 500px; /* Restrict max width */
+    margin: 0 auto;
+}
+/* Search Bar and Button */
+.search-bar {
+    padding: 0.4rem;
+    font-size: 0.9rem; /* Adjusted font size */
+    border: none;
+    border-radius: 4px;
+    width: 250px; /* Adjusted width */
+    margin-right: 0.5rem;
+}
+
+.search-button {
+    padding: 0.4rem 0.8rem; /* Adjusted padding */
+    border: none;
+    border-radius: 4px;
+    background-color: #ff6347;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem; /* Adjusted font size */
+}
+
+.search-button:hover {
+    background-color: #e5533c;
+}
+
+/* Home Link */
+.home-link {
+    color: #87cefa;
+    text-decoration: none;
+    font-size: 0.9rem; /* Adjusted font size */
+    margin-right: 2rem;
+}
+
+.home-link:hover {
+    color: #ff6347;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    padding-top: 3.5rem;
+    color: #ff6347;
+}
+
+main {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.artist-profile-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.artist-details img {
+    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.artist-details p, .artist-details ul {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.locations-container, .concert-dates-container, .relations-container {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.location-item, .concert-item, .relation-item {
+    background: #2a2d32;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.location-item h3, .concert-item h3, .relation-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.location-item p, .concert-item p {
+    margin: 5px 0;
+}
+
+.location-item ul, .concert-item ul, .relation-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.back-home-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}

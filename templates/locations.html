@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/tmp.css">
-    <title>Concert Dates</title>
+    <title>Concert Locations</title>
 </head>
 <body>
     <header>
@@ -22,26 +22,23 @@
         </div>
     </header>
     <main>
-        <div class="logo" id="dates-logo">
+        <div class="logo">
             <h1>Music Legends</h1>
             <p>Discover the Icons of Music</p>
         </div>
         <div class="container">
-            <h1>Concert Dates</h1>
-            {{ if .}}
-                {{ range .}}
-                    <div class="concert-item">
-                        <h2>Concert ID: {{.Id}}</h2>
-                        <ul class="concert-list">
-                            {{range .Dates}}
-                                <li>{{.}}</li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                {{ end }}
-            {{ else }}
-                <p class="no-dates">No concert dates available.</p>
-            {{ end }}
+            <h1>Concert Locations</h1>
+            {{range .}}
+                <div class="location-item">
+                    <h2>Id: {{.Id}}</h2>
+                    <p>Date: <a href="{{.Date}}" target="_blank">{{.Date}}</a></p>
+                    <ul>
+                        {{range .Locations}}
+                            <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            {{end}}
             <a href="/" class="back-home-button">Back to Home Page</a>
         </div>
     </main>
