@@ -2,22 +2,17 @@ package main
 
 import (
 	"fmt"
-	"groupie-Tracker/internal"
 	"net/http"
+
+	"groupie-tracker/handlers"
 )
 
 func main() {
-	internal.Routes()
+	http.HandleFunc("/", handlers.DetailsHandler)
+	// http.HandleFunc("/dates", handlers.Datehandler)
+	// http.HandleFunc("/locations", handlers.Locationhandler)
+	// http.HandleFunc("/relations", handlers.Relationthandler)
 
-	serve := http.Server{
-		Addr:    "127.0.0.1:8080",
-		Handler: nil,
-	}
-	fmt.Println("Listening on http://127.0.0.1:8080")
-
-	err := serve.ListenAndServe()
-	if err != nil {
-		fmt.Println("Error Starting the Server error:", err)
-	}
-
+	fmt.Println("Server running on http://localhost:8080/")
+	http.ListenAndServe(":8080", nil)
 }

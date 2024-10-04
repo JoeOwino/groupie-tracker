@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concert Locations</title>
+    <title>Concert Dates</title>
 </head>
 <body>
-    <h1>Concert Locations</h1>
+    <h1>Concert Dates</h1>
     <ul>
         {{range .Index}}
         <li>
             <strong>Artist ID:</strong> {{.ArtistID}}<br>
-            <strong>Locations:</strong>
+            <strong>Concert Dates:</strong>
             <ul>
-                {{range .LocationName}}
+                {{range .Date}}
                 <li>{{.}}</li>
                 {{end}}
             </ul>
