@@ -3,6 +3,7 @@ package api
 import "strconv"
 
 type ArtistsList struct {
+	ArtistID     int
 	ArtistName   string
 	ArtistImage  string
 	BandMembers  []string
@@ -42,6 +43,7 @@ func ArtistMap() (map[int]ArtistsList, error) {
 		}
 
 		band := ArtistsList{
+			ArtistID:     artist.ArtistID,
 			ArtistName:   artist.ArtistName,
 			ArtistImage:  artist.ArtistImage,
 			BandMembers:  artist.BandMembers,
