@@ -1,0 +1,93 @@
+/* Center the heading and list */
+h2 {
+    text-align: center;
+    font-size: 28px; /* Adjusted size for prominence */
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Styling the container */
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px; /* Limit max width for better readability */
+    margin: auto; /* Center the container */
+}
+
+/* Style for the band members heading */
+.band-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #555; /* Slightly lighter color for differentiation */
+}
+
+/* Center the band members list */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Center the list items */
+ul li {
+    margin: 5px 0;
+    background-color: #f1f1f1; /* Light background for list items */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Smooth hover transition */
+}
+
+/* Change background color on hover for list items */
+ul li:hover {
+    background-color: #e1e1e1; /* Slightly darker on hover */
+}
+
+/* Styling the buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #333; /* Green background */
+    color: white; /* White text */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the buttons */
+.button:hover {
+    background-color: #666464; /* Darker green on hover */
+}
+
+/* Additional margin for the Back to Homepage button */
+.back-home {
+    margin-top: 60px; /* Added margin for spacing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .details-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 24px; /* Smaller font size for mobile */
+    }
+
+    .band-heading {
+        font-size: 20px; /* Adjusted for mobile */
+    }
+
+    .button {
+        padding: 8px 16px; /* Smaller button for mobile */
+        font-size: 14px; /* Adjusted font size */
+    }
+}

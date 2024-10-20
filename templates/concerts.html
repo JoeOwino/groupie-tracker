@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupie Tracker</title>
+    <link rel="stylesheet" href="/static/concerts.css">
+</head>
+<body>
+    <h2>{{.ArtistName}}</h2>
+    <li>
+        <img src="{{.ArtistImage}}" alt="Artist Image" style="width:200px;">
+        <p><strong>Concerts</strong></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Concert Location</th>
+                    <th>Concert Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $key, $val := .Concerts}}
+                <tr>
+                    <td>{{$key}}</td>
+                    <td>
+                        <ul>
+                            {{range $val}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+        
+    </li>
+</body>
+</html>
