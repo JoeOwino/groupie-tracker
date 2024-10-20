@@ -4,36 +4,22 @@ import (
 	"encoding/json"
 )
 
-type Relations struct {
-	Index []Relation
-}
-
 type Relation struct {
 	ArtistID  int                 `json:"id"`
 	Locations map[string][]string `json:"datesLocations"`
 }
 
-func DecodeRelations(RelationsAPI string) (Relations, error) {
-	apiBody, err := FetchAPI(RelationsAPI)
+func DecodeRelations(RelationAPI string) (Relation, error) {
+	apiBody, err := FetchAPI(RelationAPI)
 	if err != nil {
-		return Relations{}, err
+		return Relation{}, err
 	}
-	relations := Relations{}
+	relations := Relation{}
 
 	err = json.Unmarshal(apiBody, &relations)
 	if err != nil {
-		return Relations{}, err
+		return Relation{}, err
 	}
 
 	return relations, nil
-}
-
-func RelationMap(relations Relations) map[int]map[string][]string {
-	rMap := make(map[int]map[string][]string)
-
-	for _, index := range relations.Index {
-		rMap[index.ArtistID] = index.Locations
-	}
-
-	return rMap
 }
