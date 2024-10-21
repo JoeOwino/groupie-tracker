@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groupie Tracker</title>
+    <title>{{.ArtistName}} - Groupie Tracker</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
     <div class="details-container">
         <h2>{{.ArtistName}}</h2>
-        <img src="{{.ArtistImage}}" alt="Artist Image of {{.ArtistName}}" style="width:200px;">
+        <img src="{{.ArtistImage}}" alt="Artist Image of {{.ArtistName}}" class="artist-image">
 
         <h3 class="band-heading">Band Members:</h3>
         <ul>
@@ -21,9 +21,11 @@
         </ul>
 
         <!-- Button Links -->
-        <a href="/locations?id={{.ArtistID}}" class="button">Locations</a>
-        <a href="/dates?id={{.ArtistID}}" class="button">Dates</a>
-        <a href="/concerts?id={{.ArtistID}}" class="button">Concerts</a>
+        <div class="button-container">
+            <a href="/locations?id={{.ArtistID}}" class="button">Locations</a>
+            <a href="/dates?id={{.ArtistID}}" class="button">Dates</a>
+            <a href="/concerts?id={{.ArtistID}}" class="button">Concerts</a>
+        </div>
         
         <!-- Back to Homepage Button with additional margin -->
         <a href="/" class="button back-home">Back to Homepage</a>

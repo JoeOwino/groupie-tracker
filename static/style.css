@@ -10,22 +10,38 @@ body {
     background-color: #f0f0f0; /* Light background for consistency */
 }
 
-/* Centering and styling for the main headings */
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-    font-family: 'Arial', sans-serif; /* Consistent font for headings */
-    color: #333;
-    margin-top: 20px;
+/* Details Container */
+.details-container {
+    max-width: 800px; /* Limit the width for better readability */
+    padding: 20px; /* Add padding around the container */
+    background-color: #ffffff; /* White background for the details section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px; /* Margin around the container */
 }
 
-/* Center and style the artist image */
-img {
+/* Centering and styling for the main headings */
+h2 {
+    text-align: center;
+    font-size: 2em; /* Larger font size for the artist name */
+    color: #333;
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+h3.band-heading {
+    margin-top: 30px; /* Space above the band members heading */
+    font-size: 1.5em; /* Slightly larger font for subheading */
+    color: #555; /* Darker color for contrast */
+}
+
+/* Artist image styling */
+.artist-image {
     display: block;
     margin: 20px auto;
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #ccc;
+    width: 100%; /* Make the image responsive */
+    max-width: 400px; /* Limit the maximum width */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid #ccc; /* Border around the image */
 }
 
 /* Styling for the concert dates and locations section */
@@ -41,21 +57,23 @@ p {
 ul {
     list-style-type: none;
     padding: 0;
-    max-width: 400px;
     margin: 20px auto;
     font-size: 18px;
     color: #333;
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap into multiple lines */
 }
 
 /* Style for each list item */
 li {
     background-color: #f9f9f9;
-    margin: 8px 0;
+    margin: 8px 5px; /* Adjust margin for spacing */
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Artist card styling */
@@ -142,6 +160,15 @@ li {
     background-color: #666464;
 }
 
+/* Back to Homepage Button */
+.back-home {
+    background-color: #007BFF; /* Different color for the back button */
+}
+
+.back-home:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 /* Footer styling */
 footer {
     background-color: #333; /* Dark background */
@@ -166,19 +193,19 @@ footer {
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .details-container {
-        padding: 10px;
+        padding: 10px; /* Less padding on smaller screens */
     }
 
     h2 {
-        font-size: 24px; /* Smaller font size for mobile */
+        font-size: 1.5em; /* Smaller font size for mobile */
     }
 
-    .band-heading {
-        font-size: 20px; /* Adjusted for mobile */
+    h3.band-heading {
+        font-size: 1.2em; /* Adjusted for mobile */
     }
 
     .button {
-        padding: 8px 16px; /* Smaller button for mobile */
+        padding: 8px 12px; /* Smaller button for mobile */
         font-size: 14px; /* Adjusted font size */
     }
 }
