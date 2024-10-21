@@ -1,0 +1,183 @@
+/* Global Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Change to flex-start to allow content to flow naturally */
+    align-items: center;
+    height: 100vh; /* For error page */
+    margin: 0;
+    background-color: #f0f0f0; /* Light background for consistency */
+}
+
+/* Centering and styling for the main headings */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Consistent font for headings */
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Center and style the artist image */
+img {
+    display: block;
+    margin: 20px auto;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+/* Styling for the concert dates and locations section */
+p {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Style for lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 20px auto;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Style for each list item */
+li {
+    background-color: #f9f9f9;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Artist card styling */
+.artists-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.artist-card {
+    width: calc(25% - 30px); /* Default for larger screens */
+    margin: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for artist cards */
+@media (max-width: 1200px) {
+    .artist-card {
+        width: calc(33.33% - 30px); /* 3 cards per row */
+    }
+}
+
+@media (max-width: 900px) {
+    .artist-card {
+        width: calc(50% - 30px); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .artist-card {
+        width: 100%; /* 1 card per row */
+    }
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Artist image styling */
+.artist-card img {
+    transition: transform 0.3s;
+}
+
+.artist-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Artist details styling */
+.artist-details {
+    padding: 10px;
+}
+
+.artist-details h2 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* Button styling */
+.details-button, .button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover, .button:hover {
+    background-color: #666464;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Add padding for spacing */
+    position: relative; /* Adjust positioning if needed */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Error page styling */
+.error-message {
+    font-size: 120px;
+    color: #333; /* Red color for error */
+}
+
+.error-description {
+    font-size: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .details-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 24px; /* Smaller font size for mobile */
+    }
+
+    .band-heading {
+        font-size: 20px; /* Adjusted for mobile */
+    }
+
+    .button {
+        padding: 8px 16px; /* Smaller button for mobile */
+        font-size: 14px; /* Adjusted font size */
+    }
+}
