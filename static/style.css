@@ -124,6 +124,7 @@ li {
 .artist-details h2 {
     margin-bottom: 10px;
     font-size: 1.2em;
+    text-transform: uppercase;
 }
 
 /* Button styling */
@@ -180,4 +181,11 @@ footer {
         padding: 8px 16px; /* Smaller button for mobile */
         font-size: 14px; /* Adjusted font size */
     }
+}
+
+.artist-link {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit text color from parent */
+    display: block; /* Make the link a block element */
+    height: 100%; /* Ensure it covers the entire card */
 }
