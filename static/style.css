@@ -12,14 +12,17 @@ body {
 
 /* Details Container */
 .details-container {
-    max-width: 800px; /* Limit the width for better readability */
+    max-width: 60%; 
+    min-width: 25%;/* Limit the width for better readability */
     padding: 20px; /* Add padding around the container */
     background-color: #ffffff; /* White background for the details section */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     margin: 20px; /* Margin around the container */
 }
-
+h2 .details-container{
+    text-transform: uppercase;
+}
 /* Centering and styling for the main headings */
 h2 {
     text-align: center;
@@ -215,4 +218,46 @@ footer {
     color: inherit; /* Inherit text color from parent */
     display: block; /* Make the link a block element */
     height: 100%; /* Ensure it covers the entire card */
+}
+
+/* Search Input Styling */
+.search-input {
+    width: 100%; /* Full width */
+    max-width: 400px; /* Limit the maximum width */
+    padding: 10px 15px; /* Padding for better spacing */
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    color: #333; /* Text color */
+    background-color: #f9f9f9; /* Light background */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+/* Search Input Focus State */
+.search-input:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Suggestions List Styling */
+#suggestions {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 10px 0 0; /* Margin above the suggestions */
+    border: 1px solid #ccc; /* Border around suggestions */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Individual Suggestion Item */
+#suggestions li {
+    padding: 10px; /* Padding for each suggestion */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover Effect for Suggestions */
+#suggestions li:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
 }

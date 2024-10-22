@@ -24,6 +24,8 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		ConcertsHandler(w, r)
 	case "/locations":
 		LocationsHandler(w, r)
+	case "/search":
+		SearchHandler(w, r)
 	default:
 		errTxt := "Oops! The page you are looking for does not exist\n."
 		ErrorHandler(w, r, http.StatusNotFound, errTxt, "404 Not Found", "Artists")

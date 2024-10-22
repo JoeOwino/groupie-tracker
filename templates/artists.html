@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tracker</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script>
+        let debounceTimer;
+        async function fetchSuggestions() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(async () => {
+                const query = document.getElementById('search-input').value;
+                if (query.length < 1) {
+                    document.getElementById('suggestions').innerHTML = '';
+                    return;
+                }
+                const response = await fetch(`/search?query=${query}`);
+                const suggestions = await response.json();
+                const suggestionsList = document.getElementById('suggestions');
+                suggestionsList.innerHTML = '';
+
+                suggestions.forEach(suggestion => {
+                    const li = document.createElement('li');
+                    li.textContent = suggestion;
+                    suggestionsList.appendChild(li);
+                });
+            }, 300); // Adjust the delay as needed
+        }
+    </script>
 </head>
 <body>
     <h1>Artists</h1>
+    <input type="text" id="search-input" class="search-input" onkeyup="fetchSuggestions()" placeholder="Search for artists, members, etc.">
+    <ul id="suggestions"></ul>
     <div class="artists-container">
         {{range .}}
         <div class="artist-card">
@@ -22,6 +47,7 @@
         </div>
         {{end}}
     </div>
+    
     <footer>
         <p>&copy; 2024 Groupie Tracker. All rights reserved.</p>
     </footer>
