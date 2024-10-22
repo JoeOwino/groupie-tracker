@@ -42,7 +42,7 @@ func TestPathHandler(t *testing.T) {
 	}
 
 	rr := httptest.NewRecorder()
-	artistsHandler := http.HandlerFunc(Artistshandler)
+	artistsHandler := http.HandlerFunc(ArtistsHandler)
 	detailsHandler := http.HandlerFunc(DetailsHandler)
 	concertsHandler := http.HandlerFunc(ConcertsHandler)
 

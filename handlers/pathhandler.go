@@ -15,7 +15,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	filepath := r.URL.Path
 	switch filepath {
 	case "/":
-		Artistshandler(w, r)
+		ArtistsHandler(w, r)
 	case "/details":
 		DetailsHandler(w, r)
 	case "/dates":

@@ -31,3 +31,13 @@ func DecodeArtists(artistAPI string) ([]Artist, error) {
 
 	return artists, nil
 }
+
+func ArtistsMap(artists []Artist) map[int]Artist {
+	artistMap := make(map[int]Artist)
+
+	for _, artist := range artists {
+		artistMap[artist.ArtistID] = artist
+	}
+
+	return artistMap
+}
