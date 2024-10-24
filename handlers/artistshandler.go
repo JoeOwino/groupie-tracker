@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
@@ -9,9 +8,9 @@ import (
 )
 
 type ArtistData struct {
-	Data []api.Artist
+	Data  []api.Artist
 	Query string
-} 
+}
 
 // Artistshandler handles the HTTP requests for the artists' page.
 // It responds to GET requests by fetching artist data and rendering the artists.html template.
@@ -31,12 +30,10 @@ func ArtistsHandler(w http.ResponseWriter, r *http.Request) {
 	query := r.FormValue("searchText")
 	_, filteredArtists := api.SearchResults(query, artists, locations.Index)
 
-	data := ArtistData {
-		Data: filteredArtists,
+	data := ArtistData{
+		Data:  filteredArtists,
 		Query: query,
 	}
-
-	fmt.Println(data.Query)
 
 	t, err := template.ParseFiles("templates/artists.html")
 	if err != nil {

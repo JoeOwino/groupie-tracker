@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tracker</title>
     <link rel="stylesheet" href="/static/style.css">
+
     <script>
         let debounceTimer;
         async function fetchSuggestions() {
@@ -22,18 +23,29 @@
 
                 suggestions.forEach(suggestion => {
                     const li = document.createElement('li');
-                    li.textContent = suggestion;
+                    const a = document.createElement('a');
+
+                    if (suggestion[1].includes(" - location")) {
+                        a.href = `/locations?id=${suggestion[0]}`; 
+                    } else {
+                        a.href = `/details?id=${suggestion[0]}`; 
+                    }
+
+                    a.textContent = suggestion[1]; 
+                    li.appendChild(a);
                     suggestionsList.appendChild(li);
                 });
-            }, 300); // Adjust the delay as needed
+                
+            }, 300); // Adjust delay time (ms)
         }
     </script>
+
 </head>
 <body>
     <h1>Artists</h1>
 
     <form method="get"  action="/">
-        <input name="searchText" type="text" id="search-input" value={{.Query}} class="search-input" onkeyup="fetchSuggestions()" placeholder="Search for artists, members, etc.">
+        <input name="searchText" type="text" id="search-input" placeholder="Search for artists, members, etc." value="{{if .Query}}{{.Query}}{{end}}" class="search-input" onkeyup="fetchSuggestions()">
     </form>
 
     <ul id="suggestions"></ul>
