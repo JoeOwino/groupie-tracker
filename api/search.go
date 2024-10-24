@@ -55,5 +55,10 @@ func SearchResults(query string, artists []Artist, locations []Location) ([][]st
 		}
 	}
 
+	if len(filteredArtists) < 1 {
+		filteredArtists = artists
+		suggestions = append(suggestions, []string{"-1", "No artist matches the text you entered"})
+	}
+
 	return suggestions, filteredArtists
 }

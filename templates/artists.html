@@ -25,13 +25,17 @@
                     const li = document.createElement('li');
                     const a = document.createElement('a');
 
-                    if (suggestion[1].includes(" - location")) {
-                        a.href = `/locations?id=${suggestion[0]}`; 
+                    if (suggestion[0] === "-1") {
+                        li.textContent = suggestion[1];
                     } else {
-                        a.href = `/details?id=${suggestion[0]}`; 
+                        if (suggestion[1].includes(" - location")) {
+                            a.href = `/locations?id=${suggestion[0]}`; 
+                        } else {
+                            a.href = `/details?id=${suggestion[0]}`; 
+                        }
+                        a.textContent = suggestion[1]; 
                     }
 
-                    a.textContent = suggestion[1]; 
                     li.appendChild(a);
                     suggestionsList.appendChild(li);
                 });
