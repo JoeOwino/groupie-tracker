@@ -52,12 +52,12 @@ func Artist(r *http.Request) (ArtistDetails, error) {
 
 	strid := strconv.Itoa(id)
 
-	location, err := api.DecodeLocations("https://groupietrackers.herokuapp.com/api/locations/" + strid)
+	location, err := api.DecodeLocation("https://groupietrackers.herokuapp.com/api/locations/" + strid)
 	if err != nil {
 		return ArtistDetails{}, err
 	}
 
-	date, err := api.DecodeDates("https://groupietrackers.herokuapp.com/api/dates/" + strid)
+	date, err := api.DecodeDate("https://groupietrackers.herokuapp.com/api/dates/" + strid)
 	if err != nil {
 		return ArtistDetails{}, err
 	}

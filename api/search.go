@@ -1,60 +1,58 @@
 package api
 
 import (
-	"strings"
 	"strconv"
+	"strings"
 )
 
-type SearchedArtists struct {
-	ArtistID     int
-	ArtistName   []string
-	BandMembers  []string
-	CreationDate []int
-	FirstAlbum   []string
-	Locations    []string
-	Dates        []string
-}
-
 // SearchSuggestions returns a list of suggestions based on the search input.
-func SearchSuggestions(query string, artists []Artist, locations []Location) []string {
+func SearchResults(query string, artists []Artist, locations []Location) ([]string, []Artist) {
+	if len(query) < 2 {
+		return nil, artists
+	}
+
 	var suggestions []string
 	query = strings.ToLower(query)
+	filteredArtists := []Artist{}
 
-	// Create a map for faster lookups
-	// artistMap := make(map[string]Artist)
-	// for _, artist := range artists {
-	// 	artistMap[artist.ArtistName] = artist
-	// }
+	for i, artist := range artists {
+		isFound := false
 
-	for _, artist := range artists {
 		// Check for artist name
 		if strings.Contains(strings.ToLower(artist.ArtistName), query) {
 			suggestions = append(suggestions, artist.ArtistName+" - artist/band")
+			isFound = true
 		}
+
 		// Check for band members
 		for _, member := range artist.BandMembers {
 			if strings.Contains(strings.ToLower(member), query) {
 				suggestions = append(suggestions, member+" - member")
+				isFound = true
 			}
 		}
 		// Check for first album date
 		if strings.Contains(strings.ToLower(artist.FirstAlbum), query) {
 			suggestions = append(suggestions, artist.FirstAlbum+" - first album")
+			isFound = true
 		}
 		// Check for creation date
 		if strings.Contains(strings.ToLower(strconv.Itoa(artist.CreationDate)), query) {
 			suggestions = append(suggestions, strconv.Itoa(artist.CreationDate)+" - creation date")
+			isFound = true
 		}
-	}
 
-	// Check for locations
-	for _, location := range locations {
-		for _, locName := range location.LocationName {
+		for _, locName := range locations[i].LocationName {
 			if strings.Contains(strings.ToLower(locName), query) {
 				suggestions = append(suggestions, locName+" - location")
+				isFound = true
 			}
+		}
+
+		if isFound {
+			filteredArtists = append(filteredArtists, artist)
 		}
 	}
 
-	return suggestions
+	return suggestions, filteredArtists
 }

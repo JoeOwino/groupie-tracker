@@ -20,10 +20,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Ensure locations is a slice
-	locationSlice := []api.Location{locations} // Wrap locations in a slice
-
-	suggestions := api.SearchSuggestions(query, artists, locationSlice) // Use the slice
+	suggestions, _ := api.SearchResults(query, artists, locations.Index)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(suggestions)

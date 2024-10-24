@@ -31,10 +31,14 @@
 </head>
 <body>
     <h1>Artists</h1>
-    <input type="text" id="search-input" class="search-input" onkeyup="fetchSuggestions()" placeholder="Search for artists, members, etc.">
+
+    <form method="get"  action="/">
+        <input name="searchText" type="text" id="search-input" value={{.Query}} class="search-input" onkeyup="fetchSuggestions()" placeholder="Search for artists, members, etc.">
+    </form>
+
     <ul id="suggestions"></ul>
     <div class="artists-container">
-        {{range .}}
+        {{range .Data}}
         <div class="artist-card">
             <a href="/details?id={{.ArtistID}}" class="artist-link"> <!-- Make the whole card clickable -->
                 <div class="artist-details">
