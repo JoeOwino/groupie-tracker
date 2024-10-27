@@ -1,10 +1,11 @@
 ## Groupie Tracker
 
-Groupie Tracker is a web application built to display and manipulate data from a given API containing information about artists, their concert locations, dates, and relationships between these elements. The application provides a user-friendly interface where users can browse artist information, view concert locations and dates, and interact with server-side data in real-time using client-server events.
+The Groupie Tracker Search Bar is a Go-based application designed to help users search for various attributes related to artists, bands, and their music. This program allows users to efficiently find information such as artist names, band members, locations, album release dates, and creation dates with real-time typing suggestions.
 
 ### Project Overview
 
-Groupie Tracker displays detailed information about music artists and their concerts by consuming an API. The API provides information in four parts:
+Groupie Tracker displays detailed information about music artists and their concerts by consuming an API. The search input is handled in a case-insensitive manner, ensuring that users can find results regardless of how they capitalize their queries.
+The API provides information in four parts:
 
 1. Artists - Information about bands and artists, including name, image, activity year, first album, and band members.
 2. Locations - Details about the upcoming or past concert locations.
@@ -12,6 +13,7 @@ Groupie Tracker displays detailed information about music artists and their conc
 4. Relations - Links artists, locations, and concert dates.
 
 The application aims to provide rich visualizations of this data using cards, lists, and tables, making it easy for users to explore information interactively.
+
 ### Features
 
 - Artist Information: Displays artists' details, including band members, start date, and first album.
@@ -40,13 +42,13 @@ The application aims to provide rich visualizations of this data using cards, li
 1. Clone the repository:
 
 ```bash
-git clone https://learn.zone01kisumu.ke/git/joseowino/groupie-tracker
+git clone https://learn.zone01kisumu.ke/git/aadero/groupie-tracker-search-bar
 ```
 
 2. Navigate into the project directory:
 
 ```bash
-cd groupie-tracker
+cd groupie-tracker-search-bar
 ```
 
 3. Install dependencies (if any).
