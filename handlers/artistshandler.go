@@ -27,7 +27,7 @@ func ArtistsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	query := r.FormValue("searchText")
+	query := r.FormValue("search_query")
 	_, filteredArtists := api.SearchResults(query, artists, locations.Index)
 
 	data := ArtistData{

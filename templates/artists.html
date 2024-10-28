@@ -10,7 +10,7 @@
     <h1>Artists</h1>
 
     <form method="get"  action="/">
-        <input name="searchText" type="text" id="search-input" placeholder="Search for artists, members, etc." value="{{if .Query}}{{.Query}}{{end}}" class="search-input" onkeyup="fetchSuggestions()">
+        <input name="search_query" type="text" id="search-input" placeholder="Search for artists, members, etc." value="{{if .Query}}{{.Query}}{{end}}" class="search-input" onkeyup="fetchSuggestions()">
     </form>
 
     <ul id="suggestions"></ul>

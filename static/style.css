@@ -7,7 +7,7 @@ body {
     align-items: center;
     height: 100vh; /* For error page */
     margin: 0;
-    background-color: #f0f0f0; /* Light background for consistency */
+    background-color: #f0f0f0c6; /* Light background for consistency */
 }
 
 /* Details Container */
@@ -15,7 +15,7 @@ body {
     max-width: 60%; 
     min-width: 25%;/* Limit the width for better readability */
     padding: 20px; /* Add padding around the container */
-    background-color: #ffffff; /* White background for the details section */
+    background-color: #f0f0f0c6; /* White background for the details section */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     margin: 20px; /* Margin around the container */
@@ -42,7 +42,7 @@ h3.band-heading {
     display: block;
     margin: 20px auto;
     width: 100%; /* Make the image responsive */
-    max-width: 400px; /* Limit the maximum width */
+    max-width: 300px; /* Limit the maximum width */
     border-radius: 10px; /* Rounded corners */
     border: 2px solid #ccc; /* Border around the image */
 }
@@ -90,7 +90,6 @@ li {
 }
 
 .artist-card {
-    width: calc(25% - 30px); /* Default for larger screens */
     margin: 15px;
     padding: 20px;
     display: flex;
