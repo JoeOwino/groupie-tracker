@@ -35,13 +35,13 @@ func TestArtist(t *testing.T) {
 
 func TestPathHandler(t *testing.T) {
 	defer changeToParentDir(t)()
-
 	req, err := http.NewRequest("GET", "/", nil)
 	if err != nil {
 		t.Fatalf("Expected no error found %v", err)
 	}
 
 	rr := httptest.NewRecorder()
+
 	artistsHandler := http.HandlerFunc(ArtistsHandler)
 	detailsHandler := http.HandlerFunc(DetailsHandler)
 	concertsHandler := http.HandlerFunc(ConcertsHandler)

@@ -55,16 +55,24 @@ func TestDecoders(t *testing.T) {
 		},
 	}
 
-	locationsMock := Location{
+	locationMock := Location{
 		ArtistID: 1, LocationName: []string{"City 1", "City 2"},
+	}
+
+	locationsMock := Locations{
+		Index: []Location{locationMock},
 	}
 
 	dateMock := Date{
 		ArtistID: 1, Date: []string{"City 1", "City 2"},
 	}
 
+	datesMock := Dates{
+		Index: []Date{dateMock},
+	}
+
 	relationsMock := Relation{
-			ArtistID: 1, Locations: map[string][]string{"2024": {"City 1", "City 2"}},
+		ArtistID: 1, Locations: map[string][]string{"2024": {"City 1", "City 2"}},
 	}
 
 	// Create mock servers
@@ -73,13 +81,23 @@ func TestDecoders(t *testing.T) {
 	}))
 	defer artistsServer.Close()
 
+	locationServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(locationMock)
+	}))
+	defer locationServer.Close()
+
 	locationsServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(locationsMock)
 	}))
 	defer locationsServer.Close()
 
-	datesServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	dateServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(dateMock)
+	}))
+	defer dateServer.Close()
+
+	datesServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		json.NewEncoder(w).Encode(datesMock)
 	}))
 	defer datesServer.Close()
 
@@ -94,20 +112,68 @@ func TestDecoders(t *testing.T) {
 		t.Fatalf("Expected no error, got %v", err)
 	}
 
+	location, err := DecodeLocation(locationServer.URL)
+	if err != nil {
+		t.Fatalf("Expected no error, got %v", err)
+	}
+
+	date, err := DecodeDate(dateServer.URL)
+	if err != nil {
+		t.Fatalf("Expected no error, got %v", err)
+	}
+
+	relation, err := DecodeRelations(dateServer.URL)
+	if err != nil {
+		t.Fatalf("Expected no error, got %v", err)
+	}
+
+	locations, err := DecodeLocations(locationsServer.URL)
+	if err != nil {
+		t.Fatalf("Expected no error, got %v", err)
+	}
+
+	dates, err := DecodeDates(datesServer.URL)
+	if err != nil {
+		t.Fatalf("Expected no error, got %v", err)
+	}
+
+	artistMap := ArtistsMap(artists)
 
 	if artistsMock[0].ArtistName != artists[0].ArtistName {
 		t.Errorf("Expected %v got %v", artistsMock[0].ArtistName, artists[0].ArtistName)
 	}
 
-	// if lMap == nil {
-	// 	t.Errorf("Expected Location map got nil")
-	// }
+	if locationMock.LocationName[0] != location.LocationName[0] {
+		t.Errorf("Expected %v got %v", locationMock.LocationName[0], location.LocationName[0])
+	}
 
-	// if dMap == nil {
-	// 	t.Errorf("Expected Date map got nil")
-	// }
+	if dateMock.Date[0] != date.Date[0] {
+		t.Errorf("Expected %v got %v", dateMock.Date[0], date.Date[0])
+	}
 
-	// if rMap == nil {
-	// 	t.Errorf("Expected Date map got nil")
-	// }
+	if relationsMock.ArtistID != relation.ArtistID {
+		t.Errorf("Expected %v got %v", relationsMock.ArtistID, relation.ArtistID)
+	}
+
+	if locations.Index == nil {
+		t.Errorf("Expected Locations map got nil")
+	}
+
+	if dates.Index == nil {
+		t.Errorf("Expected Dates map got nil")
+	}
+
+	if artistMap == nil {
+		t.Errorf("Expected Artits map got nil")
+	}
+
+	suggestions, filteredArtist := SearchResults("Band", artists, locations.Index)
+
+	if suggestions == nil {
+		t.Errorf("Expected Suggestions map got nil")
+	}
+
+	if filteredArtist == nil {
+		t.Errorf("Expected Artists map got nil")
+	}
 }
