@@ -77,6 +77,8 @@ li {
     border: 1px solid #ccc;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+    font-size: 1.2em;
 }
 
 /* Style for the links within the list items */
@@ -172,7 +174,15 @@ li a {
 
 /* Back to Homepage Button */
 .back-home {
-    background-color: #007BFF; /* Different color for the back button */
+    background-color: #007BFF; /* Button color */
+   color: #fff;
+   padding: 10px 20px; /* Button padding */
+   border-radius: 30px;
+   margin: 20px ;
+   font-weight: bold;
+   text-decoration: none;
+   bottom: 15px; /* Distance from bottom of card */
+   left: 15px; /* Distance from left side of card */
 }
 
 .back-home:hover {
