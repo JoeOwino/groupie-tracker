@@ -79,6 +79,14 @@ li {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Style for the links within the list items */
+li a {
+    display: inline-block; /* Ensures the link takes on padding and margin */
+    color: #000 !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    text-transform: capitalize;
+}
 /* Artist card styling */
 .artists-container {
     display: flex;
