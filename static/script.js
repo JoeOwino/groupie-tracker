@@ -3,13 +3,16 @@ async function fetchSuggestions() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(async () => {
         const query = document.getElementById('search-input').value;
+        const suggestionsList = document.getElementById('suggestions');
+
         if (query.length < 1) {
             document.getElementById('suggestions').innerHTML = '';
+            suggestionsList.style.display = "none"
             return;
         }
         const response = await fetch(`/search?query=${query}`);
         const suggestions = await response.json();
-        const suggestionsList = document.getElementById('suggestions');
+        suggestionsList.style.display = "flex"
         suggestionsList.innerHTML = '';
 
         suggestions.forEach(suggestion => {

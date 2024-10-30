@@ -40,12 +40,13 @@ header form {
 /* Style for the search input */
 .search-input {
     top: 0;
-    padding: 0;
+    padding: 0 10px;
     margin: 0;
     font-size: 16px;
     width: 100%;
     max-width: 400px;
     height: 35px;  
+    outline: none;
     border-radius: 25px;
     border: 1px solid rgba(245, 245, 245, 0.366); /* Blue border */
     font-size: 16px; /* Font size */
@@ -61,6 +62,7 @@ header form {
 }
 
 #suggestions {
+    display: none;
     list-style-type: none; /* Corrected from 'style type' */
     width: 430px;
     position: absolute;
