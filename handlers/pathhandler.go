@@ -1,18 +1,20 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 )
 
 // PathHandler handles incoming HTTP requests based on the request URL path.
 // It directs requests to the appropriate handler function or returns a 404 error if the path is not recognized.
 func PathHandler(w http.ResponseWriter, r *http.Request) {
+	filepath := r.URL.Path
+
 	if r.Method != "GET" {
 		ErrorHandler(w, r, http.StatusMethodNotAllowed, "Method Not Allowed", "Error", "Reload")
 		return
 	}
 
-	filepath := r.URL.Path
 	switch filepath {
 	case "/":
 		ArtistsHandler(w, r)
@@ -30,4 +32,15 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		errTxt := "Oops! The page you are looking for does not exist\n."
 		ErrorHandler(w, r, http.StatusNotFound, errTxt, "404 Not Found", "Artists")
 	}
+}
+
+func StaticHandler(w http.ResponseWriter, r *http.Request) {
+	filepath := r.URL.Path
+
+	if filepath == "/static/" {
+		ErrorHandler(w, r, http.StatusForbidden, "Access Fobidden", "Fobidden", "Reload")
+		return
+	}
+
+	http.StripPrefix("/static/", http.FileServer(http.Dir("static"))).ServeHTTP(w, r)
 }
