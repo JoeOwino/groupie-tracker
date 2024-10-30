@@ -10,6 +10,91 @@ body {
     background-color: #f0f0f0c6; /* Light background for consistency */
 }
 
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Align the form in the center using Flexbox */
+header form {
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Style for the search input */
+.search-input {
+    padding: 5px;
+    font-size: 16px;
+    width: 300px;
+    border-radius: 4px;
+    border: none;
+}
+
+#suggestions {
+    list-style-type: none; /* Corrected from 'style type' */
+    width: 430px;
+    position: absolute;
+    top: 100%; /* Position it just below the input field */
+    left: 40%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto; /* Allow scrolling if too many suggestions */
+    padding: 0;
+    margin: 0;
+    z-index: 999;
+}
+
+/* Style for individual suggestion items */
+#suggestions li {
+   /* text-align: left;
+    padding: 0px; 
+    cursor: pointer;
+    list-style: none; /* Ensure no bullets appear */
+
+    display: inline;
+    background-color: white;
+    width: 430px;
+    margin: 0; 
+    /* padding: 10px; */
+    border-radius: 0; 
+    border: 1px solid #ccc;
+    text-align: left;
+    box-shadow: none;
+    text-transform: capitalize;
+    font-size: 0.8em;
+}
+
+#suggestions li a {
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Padding for the main content to prevent overlap */
+main {
+    padding-top: 80px; /* Adjust this based on your header height */
+}
+
 /* Details Container */
 .details-container {
     max-width: 60%; 
@@ -81,14 +166,6 @@ li {
     font-size: 1.2em;
 }
 
-/* Style for the links within the list items */
-li a {
-    display: inline-block; /* Ensures the link takes on padding and margin */
-    color: #000 !important;
-    font-weight: 500 !important;
-    text-decoration: none !important;
-    text-transform: capitalize;
-}
 /* Artist card styling */
 .artists-container {
     display: flex;
