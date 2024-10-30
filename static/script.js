@@ -31,5 +31,5 @@ async function fetchSuggestions() {
             suggestionsList.appendChild(li);
         });
         
-    }, 300); // Adjust delay time (ms)
+    }, 300); // Delay time (ms)
 }

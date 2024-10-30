@@ -16,7 +16,8 @@ header {
     width: 100%;
     background-color: #333;
     color: white;
-    padding: 15px 0;
+    padding: 0;
+    margin: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -27,67 +28,82 @@ header {
 
 /* Align the form in the center using Flexbox */
 header form {
-    margin: 0 auto;
+    top: 0;
+    margin: 0;
+    padding: 0;
     flex-grow: 1;
     display: flex;
     justify-content: center;
     position: relative;
-}
+} 
 
 /* Style for the search input */
 .search-input {
-    padding: 5px;
+    top: 0;
+    padding: 0;
+    margin: 0;
     font-size: 16px;
-    width: 300px;
-    border-radius: 4px;
-    border: none;
+    width: 100%;
+    max-width: 400px;
+    height: 35px;  
+    border-radius: 25px;
+    border: 1px solid rgba(245, 245, 245, 0.366); /* Blue border */
+    font-size: 16px; /* Font size */
+    color: whitesmoke; /* Text color */
+    background-color: #424242; /* Light background */
+}
+
+/* Search Input Focus State */
+.search-input:focus {
+    border-color: 1px solid #cccccc; /* Darker blue on focus */
+    background-color: #333;
+    color: white;
 }
 
 #suggestions {
     list-style-type: none; /* Corrected from 'style type' */
     width: 430px;
     position: absolute;
-    top: 100%; /* Position it just below the input field */
-    left: 40%;
-    background-color: white;
+    padding: 0;
+    margin: 0;
+    top: 60px; /* Position it just below the input field */
+    left: 39.8%;
+    background-color: #333;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     max-height: 200px;
-    overflow-y: auto; /* Allow scrolling if too many suggestions */
+    overflow-y: auto; 
     padding: 0;
     margin: 0;
     z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for individual suggestion items */
 #suggestions li {
-   /* text-align: left;
-    padding: 0px; 
-    cursor: pointer;
-    list-style: none; /* Ensure no bullets appear */
-
     display: inline;
-    background-color: white;
+    background-color: #333;
     width: 430px;
     margin: 0; 
-    /* padding: 10px; */
     border-radius: 0; 
     border: 1px solid #ccc;
     text-align: left;
     box-shadow: none;
     text-transform: capitalize;
     font-size: 0.8em;
+    color: white;
 }
 
 #suggestions li a {
-    color: #000;
+    color: white;
     text-decoration: none;
     transition: background-color 0.3s;
     display: inline-block;
 }
 
 #suggestions li:hover {
-    background-color: #f0f0f0;
+    background-color: #424242; 
+
 }
 
 /* Padding for the main content to prevent overlap */
@@ -312,46 +328,4 @@ footer {
     color: inherit; /* Inherit text color from parent */
     display: block; /* Make the link a block element */
     height: 100%; /* Ensure it covers the entire card */
-}
-
-/* Search Input Styling */
-.search-input {
-    width: 100%; /* Full width */
-    max-width: 400px; /* Limit the maximum width */
-    padding: 10px 15px; /* Padding for better spacing */
-    border: 2px solid #007BFF; /* Blue border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    color: #333; /* Text color */
-    background-color: #f9f9f9; /* Light background */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
-}
-
-/* Search Input Focus State */
-.search-input:focus {
-    border-color: #0056b3; /* Darker blue on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow */
-    outline: none; /* Remove default outline */
-}
-
-/* Suggestions List Styling */
-#suggestions {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 10px 0 0; /* Margin above the suggestions */
-    border: 1px solid #ccc; /* Border around suggestions */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 1000; /* Ensure it appears above other elements */
-}
-
-/* Individual Suggestion Item */
-#suggestions li {
-    padding: 10px; /* Padding for each suggestion */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Hover Effect for Suggestions */
-#suggestions li:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
 }
